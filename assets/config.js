@@ -51,8 +51,7 @@ window.OFERTA = {
   empresa: {
     nome: "Congregação de Fátima",
     cnpj: "51.546.218/0001-87",
-    email: "contato@seudominio.com.br",
-    whatsapp: "(00) 00000-0000",
+    email: "southerngrowthdigital@gmail.com",
     prazoEnvio: "Enviamos para todo o Brasil com código de rastreio."
   }
 };
