@@ -18,7 +18,7 @@ window.OFERTA = {
   // 2) ONDE OS ENDEREÇOS SÃO SALVOS (URL do Web App do Google Apps Script).
   //    Veja README.md → "Salvar endereços na planilha". Sem isso, os
   //    endereços NÃO são guardados.
-  enderecoEndpoint: "",
+  enderecoEndpoint: "https://script.google.com/macros/s/AKfycbyKyfroaJunVRSXMYZIVX6T8hqHzsLS0sPpmHjsWXrBnv-FmHEPoYg-4stNfbY0f8oVrQ/exec",
 
   // 3) META PIXEL (opcional). Deixe "" para desativar.
   pixelId: "",
