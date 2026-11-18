@@ -21,7 +21,7 @@ window.OFERTA = {
   enderecoEndpoint: "https://script.google.com/macros/s/AKfycbyKyfroaJunVRSXMYZIVX6T8hqHzsLS0sPpmHjsWXrBnv-FmHEPoYg-4stNfbY0f8oVrQ/exec",
 
   // 3) META PIXEL (opcional). Deixe "" para desativar.
-  pixelId: "",
+  pixelId: "1657125882823147",
 
   // 4) PREÇOS. "de" = valor riscado. Use SOMENTE um preço que já foi
   //    praticado de verdade (Código de Defesa do Consumidor e regras da Meta).
