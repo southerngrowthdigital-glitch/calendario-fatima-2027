@@ -49,8 +49,8 @@ window.OFERTA = {
 
   // 7) DADOS DA EMPRESA (obrigatórios no rodapé — Decreto 7.962/2013 e Meta).
   empresa: {
-    nome: "NOME DA EMPRESA LTDA",
-    cnpj: "00.000.000/0001-00",
+    nome: "Congregação de Fátima",
+    cnpj: "51.546.218/0001-87",
     email: "contato@seudominio.com.br",
     whatsapp: "(00) 00000-0000",
     prazoEnvio: "Enviamos para todo o Brasil com código de rastreio."
