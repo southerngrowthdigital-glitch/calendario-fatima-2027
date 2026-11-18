@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Endereço de entrega — Calendário Nossa Senhora de Fátima 2027</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="padding-bottom:30px">
+
+<div class="faixa">🔒 Etapa 1 de 2 · Para onde vamos enviar?</div>
+
+<main class="wrap">
+  <div class="passos"><span><b>1. Endereço</b></span><span>2. Pagamento</span></div>
+
+  <div class="resumo" id="resumo">
+    <div><strong>Sua escolha:</strong> <span id="r-nome">—</span></div>
+    <ul id="r-itens" style="margin:.4em 0;padding-left:22px"></ul>
+    <span class="preco-de" id="r-de"></span>
+    <div class="preco-por" id="r-por"></div>
+    <label for="opcao" style="font-weight:bold;display:block;margin-top:8px">Trocar opção:</label>
+    <select id="opcao" style="width:100%;font-size:1rem;padding:12px;border-radius:10px;border:2px solid #8aa6d6;min-height:52px">
+      <option value="3">Opção 3 · Kit Fé</option>
+      <option value="2">Opção 2 · Calendário + Bônus Digital</option>
+      <option value="1">Opção 1 · Só o Calendário</option>
+    </select>
+  </div>
+
+  <h1 style="font-size:1.6rem">Preencha o endereço de entrega</h1>
+  <p class="ajuda">Escreva com calma. Se tiver dúvida, chame no WhatsApp <strong data-empresa="whatsapp"></strong>.</p>
+
+  <form class="form" id="form" novalidate autocomplete="on">
+    <label for="nome">Nome completo de quem vai receber</label>
+    <input id="nome" name="nome" autocomplete="name" required>
+    <div class="erro" data-erro="nome"></div>
+
+    <label for="telefone">Celular / WhatsApp (com DDD)</label>
+    <input id="telefone" name="telefone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 91234-5678" required>
+    <div class="erro" data-erro="telefone"></div>
+
+    <label for="email">E-mail <span class="ajuda">(para enviar o rastreio e o bônus)</span></label>
+    <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+    <div class="erro" data-erro="email"></div>
+
+    <label for="cep">CEP</label>
+    <input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" required>
+    <div class="ajuda" id="cep-status">Digite o CEP e preenchemos a rua e a cidade para você.</div>
+    <div class="erro" data-erro="cep"></div>
+
+    <label for="rua">Rua / Avenida</label>
+    <input id="rua" name="rua" autocomplete="address-line1" required>
+    <div class="erro" data-erro="rua"></div>
+
+    <div class="linha">
+      <div>
+        <label for="numero">Número</label>
+        <input id="numero" name="numero" inputmode="numeric" required>
+        <div class="erro" data-erro="numero"></div>
+      </div>
+      <div>
+        <label for="complemento">Complemento</label>
+        <input id="complemento" name="complemento" autocomplete="address-line2" placeholder="Apto, casa…">
+      </div>
+    </div>
+
+    <label for="bairro">Bairro</label>
+    <input id="bairro" name="bairro" required>
+    <div class="erro" data-erro="bairro"></div>
+
+    <div class="linha">
+      <div>
+        <label for="cidade">Cidade</label>
+        <input id="cidade" name="cidade" autocomplete="address-level2" required>
+        <div class="erro" data-erro="cidade"></div>
+      </div>
+      <div>
+        <label for="uf">Estado</label>
+        <select id="uf" name="uf" autocomplete="address-level1" required>
+          <option value="">UF</option>
+          <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option>
+        </select>
+        <div class="erro" data-erro="uf"></div>
+      </div>
+    </div>
+
+    <label for="referencia">Ponto de referência <span class="ajuda">(opcional)</span></label>
+    <input id="referencia" name="referencia">
+
+    <label class="check" for="lgpd">
+      <input type="checkbox" id="lgpd" name="lgpd" required>
+      <span>Autorizo o uso dos meus dados <strong>somente para entregar o pedido</strong> e falar comigo sobre ele, conforme a <a href="privacidade.html" target="_blank">Política de Privacidade</a>.</span>
+    </label>
+    <div class="erro" data-erro="lgpd"></div>
+
+    <div id="alerta" class="alerta" hidden></div>
+
+    <button class="btn" type="submit" id="enviar" style="margin-top:18px">CONTINUAR PARA O PAGAMENTO ➜<small>Pix, cartão ou boleto · ambiente seguro</small></button>
+    <p class="ajuda" style="text-align:center">Na próxima tela você escolhe a forma de pagamento.</p>
+  </form>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><span data-empresa="nome"></span> · CNPJ <span data-empresa="cnpj"></span></p>
+    <p><a href="privacidade.html">Política de Privacidade</a> · <a href="index.html">Voltar</a></p>
+  </div>
+</footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+<script>
+(function(){
+  var C = window.OFERTA, qs = new URLSearchParams(location.search);
+  var $ = function(id){ return document.getElementById(id); };
+  var sel = $("opcao");
+  sel.value = C.opcoes[qs.get("opcao")] ? qs.get("opcao") : "3";
+
+  function resumo(){
+    var o = C.opcoes[sel.value];
+    $("r-nome").textContent = o.nome;
+    $("r-de").textContent = o.de ? "De R$ " + o.de : "";
+    $("r-por").textContent = "Por R$ " + o.por;
+    $("r-itens").innerHTML = "";
+    o.itens.forEach(function(t){ var li = document.createElement("li"); li.textContent = t; $("r-itens").appendChild(li); });
+  }
+  sel.addEventListener("change", resumo); resumo();
+
+  /* máscaras */
+  $("telefone").addEventListener("input", function(e){
+    var d = e.target.value.replace(/\D/g, "").slice(0, 11);
+    e.target.value = d.length > 10 ? d.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3")
+                   : d.replace(/(\d{2})(\d{0,4})(\d{0,4})/, function(m,a,b,c){ return "(" + a + ") " + b + (c ? "-" + c : ""); });
+  });
+  $("cep").addEventListener("input", function(e){
+    var d = e.target.value.replace(/\D/g, "").slice(0, 8);
+    e.target.value = d.length > 5 ? d.slice(0,5) + "-" + d.slice(5) : d;
+    if (d.length === 8) buscaCep(d);
+  });
+
+  /* ViaCEP: preenche endereço automaticamente */
+  function buscaCep(cep){
+    var st = $("cep-status"); st.textContent = "Buscando endereço…";
+    fetch("https://viacep.com.br/ws/" + cep + "/json/").then(function(r){ return r.json(); }).then(function(j){
+      if (j.erro) { st.textContent = "CEP não encontrado. Preencha o endereço abaixo."; return; }
+      if (j.logradouro) $("rua").value = j.logradouro;
+      if (j.bairro) $("bairro").value = j.bairro;
+      if (j.localidade) $("cidade").value = j.localidade;
+      if (j.uf) $("uf").value = j.uf;
+      st.textContent = "✔ Endereço encontrado. Agora coloque o número.";
+      $("numero").focus();
+    }).catch(function(){ st.textContent = "Não consegui buscar o CEP. Preencha o endereço abaixo."; });
+  }
+
+  function erro(campo, msg){ var el = document.querySelector('[data-erro="' + campo + '"]'); if (el) el.textContent = msg || ""; }
+
+  function valida(d){
+    var ok = true;
+    function req(c, cond, msg){ if (!cond) { erro(c, msg); ok = false; } else erro(c, ""); }
+    req("nome", d.nome.trim().split(/\s+/).length >= 2, "Escreva nome e sobrenome.");
+    req("telefone", d.telefone.replace(/\D/g, "").length >= 10, "Coloque o celular com DDD.");
+    req("email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim()), "Confira o e-mail.");
+    req("cep", d.cep.replace(/\D/g, "").length === 8, "O CEP tem 8 números.");
+    req("rua", d.rua.trim().length > 2, "Escreva a rua.");
+    req("numero", d.numero.trim().length > 0, "Coloque o número (ou S/N).");
+    req("bairro", d.bairro.trim().length > 1, "Escreva o bairro.");
+    req("cidade", d.cidade.trim().length > 1, "Escreva a cidade.");
+    req("uf", !!d.uf, "Escolha o estado.");
+    req("lgpd", d.lgpd, "Marque esta caixa para continuar.");
+    return ok;
+  }
+
+  function idPedido(){
+    var a = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", s = "FAT-";
+    for (var i = 0; i < 6; i++) s += a[Math.floor(Math.random() * a.length)];
+    return s;
+  }
+
+  $("form").addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var f = ev.target, d = {};
+    ["nome","telefone","email","cep","rua","numero","complemento","bairro","cidade","uf","referencia"].forEach(function(k){ d[k] = f[k].value; });
+    d.lgpd = f.lgpd.checked;
+    if (!valida(d)) { var p = document.querySelector(".erro:not(:empty)"); if (p) p.scrollIntoView({behavior:"smooth", block:"center"}); return; }
+
+    var url = C.checkout[sel.value] || "";
+    var al = $("alerta");
+    if (!url || url.indexOf("COLE_AQUI") > -1) {
+      al.hidden = false; al.textContent = "Checkout ainda não configurado (edite assets/config.js).";
+      return;
+    }
+
+    var pedido = idPedido();
+    var btn = $("enviar"); btn.disabled = true; btn.firstChild.textContent = "AGUARDE, ABRINDO O PAGAMENTO…";
+
+    var registro = Object.assign({}, d, {
+      pedido: pedido, opcao: sel.value, opcao_nome: C.opcoes[sel.value].nome,
+      valor: C.opcoes[sel.value].por, data: new Date().toISOString(),
+      consentimento_lgpd: d.lgpd ? "sim" : "nao"
+    }, window.__trk || {});
+    delete registro.lgpd;
+
+    track("InitiateCheckout", {value: parseFloat(C.opcoes[sel.value].por.replace(",", ".")), currency: "BRL", num_items: 1});
+
+    var p = new URLSearchParams();
+    if (C.prefillCheckout) {
+      p.set(C.prefillParams.nome, d.nome.trim());
+      p.set(C.prefillParams.email, d.email.trim());
+      p.set(C.prefillParams.telefone, d.telefone.replace(/\D/g, ""));
+    }
+    var t = window.__trk || {};
+    Object.keys(t).forEach(function(k){ if (k !== "src") p.set(k, t[k]); });
+    p.set("src", pedido); // código do pedido para cruzar planilha × Cakto
+    var destino = url + (url.indexOf("?") > -1 ? "&" : "?") + p.toString();
+
+    function ir(){ location.href = destino; }
+    if (!C.enderecoEndpoint) { console.warn("enderecoEndpoint vazio: endereço NÃO foi salvo."); ir(); return; }
+
+    var feito = false, done = function(){ if (!feito) { feito = true; ir(); } };
+    setTimeout(done, 3500); // nunca deixa a pessoa presa
+    fetch(C.enderecoEndpoint, {
+      method: "POST", mode: "no-cors", keepalive: true,
+      headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify(registro)
+    }).then(done, done);
+  });
+})();
+</script>
+</body>
+</html>
