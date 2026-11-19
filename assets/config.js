@@ -51,7 +51,7 @@ window.OFERTA = {
   empresa: {
     nome: "Congregação de Fátima",
     cnpj: "51.546.218/0001-87",
-    email: "southerngrowthdigital@gmail.com",
+    email: "cgsrafatima@hotmail.com",
     prazoEnvio: "Enviamos para todo o Brasil com código de rastreio."
   }
 };
