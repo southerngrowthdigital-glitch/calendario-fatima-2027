@@ -34,14 +34,6 @@
     <input id="nome" name="nome" autocomplete="name" required>
     <div class="erro" data-erro="nome"></div>
 
-    <label for="telefone">Celular (com DDD)</label>
-    <input id="telefone" name="telefone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 91234-5678" required>
-    <div class="erro" data-erro="telefone"></div>
-
-    <label for="email">E-mail <span class="ajuda">(para enviar o rastreio e o bônus)</span></label>
-    <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
-    <div class="erro" data-erro="email"></div>
-
     <label for="cep">CEP</label>
     <input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000" maxlength="9" required>
     <div class="ajuda" id="cep-status">Digite o CEP e preenchemos a rua e a cidade para você.</div>
@@ -126,11 +118,6 @@
   sel.addEventListener("change", resumo); resumo();
 
   /* máscaras */
-  $("telefone").addEventListener("input", function(e){
-    var d = e.target.value.replace(/\D/g, "").slice(0, 11);
-    e.target.value = d.length > 10 ? d.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3")
-                   : d.replace(/(\d{2})(\d{0,4})(\d{0,4})/, function(m,a,b,c){ return "(" + a + ") " + b + (c ? "-" + c : ""); });
-  });
   $("cep").addEventListener("input", function(e){
     var d = e.target.value.replace(/\D/g, "").slice(0, 8);
     e.target.value = d.length > 5 ? d.slice(0,5) + "-" + d.slice(5) : d;
@@ -157,8 +144,6 @@
     var ok = true;
     function req(c, cond, msg){ if (!cond) { erro(c, msg); ok = false; } else erro(c, ""); }
     req("nome", d.nome.trim().split(/\s+/).length >= 2, "Escreva nome e sobrenome.");
-    req("telefone", d.telefone.replace(/\D/g, "").length >= 10, "Coloque o celular com DDD.");
-    req("email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email.trim()), "Confira o e-mail.");
     req("cep", d.cep.replace(/\D/g, "").length === 8, "O CEP tem 8 números.");
     req("rua", d.rua.trim().length > 2, "Escreva a rua.");
     req("numero", d.numero.trim().length > 0, "Coloque o número (ou S/N).");
@@ -178,7 +163,7 @@
   $("form").addEventListener("submit", function(ev){
     ev.preventDefault();
     var f = ev.target, d = {};
-    ["nome","telefone","email","cep","rua","numero","complemento","bairro","cidade","uf","referencia"].forEach(function(k){ d[k] = f[k].value; });
+    ["nome","cep","rua","numero","complemento","bairro","cidade","uf","referencia"].forEach(function(k){ d[k] = f[k].value; });
     d.lgpd = f.lgpd.checked;
     if (!valida(d)) { var p = document.querySelector(".erro:not(:empty)"); if (p) p.scrollIntoView({behavior:"smooth", block:"center"}); return; }
 
@@ -204,8 +189,6 @@
     var p = new URLSearchParams();
     if (C.prefillCheckout) {
       p.set(C.prefillParams.nome, d.nome.trim());
-      p.set(C.prefillParams.email, d.email.trim());
-      p.set(C.prefillParams.telefone, d.telefone.replace(/\D/g, ""));
     }
     var t = window.__trk || {};
     Object.keys(t).forEach(function(k){ if (k !== "src") p.set(k, t[k]); });
